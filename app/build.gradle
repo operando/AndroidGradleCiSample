@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
+
 apply plugin: 'com.mindera.gradle.slack'
+apply plugin: 'com.github.ben-manes.versions'
+
+apply plugin: 'com.getkeepsafe.dexcount'
+apply plugin: 'com.vanniktech.android.apk.size'
 
 def isCi = "true".equals(System.getenv("CI"))
 
