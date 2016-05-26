@@ -1,41 +1,35 @@
 language: android
 jdk:
-  - oraclejdk8
+- oraclejdk8
 notifications:
-
+  slack:
+    secure: Fq5WZ7+YLqSYfAo8XrDIX6sw55ngZ9Ca3mMMYMIUny4GNB0FSgLCp41qOovZDCfVSqF9fl5cQFxn6srSqJCp9RgAoNQJg7ORLsroL5Q31XCgLQKKyAGYw3QEoQ6FawczfB+7CJ/e4JLzyq/uZPjeRBVhW6RbN9zowW8DDfVF9m825WOvA2ClNRZOseaHKThT3k4V5TL5+/UMsH7Uvd7HH7fibxGC+kgqA1XrLLfrbqBAi2+jVVG+2jKcf2jmnsk5Hns1xd5fbxuA7CHymZWNFQpvQ51lN7eCXDSabMJlhJAwTRh34mSQ/YGbQnN7sLdYL7fk/iAIYyF6/4cjjR64fRc/UqwEJufQiYiXqT/0cOIN2nV7+97t7wY2FdtFn8A8aPwwirA/1KifUnn8cpKGdRbKtEi4/H8a/oP813KXJt/r1UUD0PE1ukCVPYRZ+22r4rGryvKFvrN1RwFDfzRnXHFuh33/M19AnsesT6zHIM6vc/BJZ4a4xEFXX7RS1zalVmWSGQ3GUyM7ZcxiQXXHW0fd69PWkGII0ApeMHdeYNZNGFP1zxKEKSVjl7Sox8PgzdRWY9MKY2cgyLxxg4KScbORfSQZyi2DWCeaY6FTOWg5y+fOVjMYtbnqcvCSs9DQL39xpgSrbbL6eDeaUaMz96ufGf6qxFTyrNZtnyVuO7k=
 env:
-  global:
-
+  global: 
 android:
   components:
-    - tools
-    - platform-tools
-    - build-tools-23.0.3
-    - android-23
-    - extra-android-m2repository
-    - extra-google-m2repository
-
+  - tools
+  - platform-tools
+  - build-tools-23.0.3
+  - android-23
+  - extra-android-m2repository
+  - extra-google-m2repository
 sudo: required
-
 before_script:
-    - sudo service postgresql stop || true
-    - sudo service mysql stop || true
-    - sudo service memcached stop || true
-    - sudo service bootlogd stop || true
-    - sudo service elasticsearch stop || true
-    - sudo service mongodb stop || true
-    - sudo service neo4j stop || true
-    - sudo service cassandra stop || true
-    - sudo service riak stop || true
-    - sudo service rsync stop || true
-    - sudo service x11-common stop || true
-
+- sudo service postgresql stop || true
+- sudo service mysql stop || true
+- sudo service memcached stop || true
+- sudo service bootlogd stop || true
+- sudo service elasticsearch stop || true
+- sudo service mongodb stop || true
+- sudo service neo4j stop || true
+- sudo service cassandra stop || true
+- sudo service riak stop || true
+- sudo service rsync stop || true
+- sudo service x11-common stop || true
 script:
-    - ./gradlew clean assembleDebug -PdisablePreDex assembleRelease -PdisablePreDex
-    - ./gradlew dependencyUpdates
-#    - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./gradlew dependencyUpdates; fi
-
+- ./gradlew clean assembleDebug -PdisablePreDex assembleRelease -PdisablePreDex
+- ./gradlew dependencyUpdates
 cache:
   directories:
-    - $HOME/.gradle/wrapper/
-
+  - $HOME/.gradle/wrapper/
