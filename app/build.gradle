@@ -40,7 +40,7 @@ dependencies {
 
 slack {
     url "$System.env.GRADLE_SLACK_WEBHOOK_URL"
-    dependsOnTasks 'dependencyUpdates'
+    dependsOnTasks 'dependencyUpdates', 'zungokokiyoshiDebug', 'sizeReleaseApk', 'countReleaseDexMethods'
 //    dependsOnTasks 'dependencyUpdates','sizeReleaseApk','countReleaseDexMethods'
     title 'gradle slack plugin title'
     enabled isCi
