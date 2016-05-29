@@ -36,7 +36,8 @@ before_script:
 
 script:
 - ./gradlew clean assembleDebug -PdisablePreDex assembleRelease -PdisablePreDex
-- ./gradlew dependencyUpdates zungokokiyoshiDebug sizeReleaseApk countReleaseDexMethods
+- ./gradlew dependencyUpdates
+# - ./gradlew dependencyUpdates zungokokiyoshiDebug sizeReleaseApk countReleaseDexMethods
 # - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./gradlew dependencyUpdates; fi
 
 cache:

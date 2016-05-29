@@ -7,7 +7,6 @@ apply plugin: 'com.getkeepsafe.dexcount'
 apply plugin: 'com.vanniktech.android.apk.size'
 
 apply plugin: 'com.os.operando.gradle.zundokokiyoshi'
-apply plugin: 'com.os.operando.gradle.twitter'
 
 def isCi = "true".equals(System.getenv("CI"))
 
@@ -40,8 +39,8 @@ dependencies {
 
 slack {
     url "$System.env.GRADLE_SLACK_WEBHOOK_URL"
-    dependsOnTasks 'dependencyUpdates', 'zungokokiyoshiDebug', 'sizeReleaseApk', 'countReleaseDexMethods'
-//    dependsOnTasks 'dependencyUpdates','sizeReleaseApk','countReleaseDexMethods'
+    dependsOnTasks 'dependencyUpdates'
+//    dependsOnTasks 'dependencyUpdates','zungokokiyoshiDebug','sizeReleaseApk','countReleaseDexMethods'
     title 'gradle slack plugin title'
     enabled isCi
 }
